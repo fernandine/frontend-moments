@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {faTimes} from '@fortawersome/free-solid-svg-icons';
+import { faTimes } from '@fortawesome/free-solid-svg-icons'
 
 import { MessagesService } from 'src/app/services/messages.service';
 
