@@ -11,16 +11,17 @@ import { Moment } from 'src/app/Moments';
 export class MomentFormComponent implements OnInit {
   @Output() onSubmit = new EventEmitter<Moment>();
   @Input() btnText!: string;
+  @Input() momentData: Moment | null = null;
 
-  momentForm!: FormGroup
+  momentForm!: FormGroup;
 
   constructor() { }
 
   ngOnInit(): void {
     this.momentForm = new FormGroup({
-      id: new FormControl(''),
-      title: new FormControl('', [Validators.required]),
-      description: new FormControl(''),
+      id: new FormControl(this.momentData ? this.momentData.id : ''),
+      title: new FormControl(this.momentData ? this.momentData.title : '', [Validators.required]),
+      description: new FormControl(this.momentData ? this.momentData.description : ''),
       image: new FormControl('')
     });
   }
